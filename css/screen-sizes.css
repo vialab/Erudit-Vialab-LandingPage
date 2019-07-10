@@ -1,0 +1,50 @@
+/* Changes for different screen sizes
+/**** Default mobile view ****/
+html{
+    --content-res: 95%;
+    --col-gap: 15px;
+}
+@media (max-width: 340px) {
+    /* Fixing the card view on *really* small screens */
+    .project-grid  {
+        grid-template-columns: repeat(auto-fill, 100%) !important;
+        grid-auto-rows: 105vw !important;
+    }
+}
+@media (max-width: 648px) {
+    .nav-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 768px)) !important;
+    }
+    .nav-logo, .nav-links{
+        margin: auto;
+        text-align: center !important;
+    }
+    .nav-logo > img {
+        width: 100% !important;
+    }
+
+    .modal-image-grid {
+        grid-template-columns: repeat(auto-fit, 85%) !important;
+    }
+}
+
+/**** Desktop views ****/
+@media (min-width: 768px) {
+    html{
+        --content-res: 700px;
+        --col-gap: 35px;
+    }
+}
+@media (min-width: 1060px) {
+    html{
+        --content-res: 1020px;
+        --max-columns: 3;
+        --col-gap: 15px;
+    }
+}
+@media (min-width: 1440px) {
+    html{
+        --content-res: 1080px;
+        --col-gap: 40px;
+    }
+}

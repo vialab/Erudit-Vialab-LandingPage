@@ -1,0 +1,263 @@
+/* Set the global font */
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Misc styles used for a bunch of things */
+.card {
+    background-color: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12),
+                0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-hover:hover {
+    transform:scale(1.05);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+               0 10px 10px rgba(0,0,0,0.22);
+
+    /* Render the animations on top of the other cards */
+    z-index: 100; 
+}
+
+.grid-centered {
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.secondary-text {
+    font-size: .85rem;
+    color: rgb(80, 80, 80);
+}
+
+.round {
+    border-radius: 100%;
+}
+
+/* Styles for elements on the page 
+in the general order that they appear in */
+.grid {
+    display: grid;
+    grid-template-columns: var(--content-res, 95%);
+    grid-auto-rows: auto; 
+    row-gap: 32px;
+}
+
+.nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, calc(var(--content-res, 100%) / 2));
+    grid-auto-rows: auto;
+    margin-bottom: 50px;
+}
+
+.nav-logo > img {
+    width: 400px;
+}
+
+.nav-links {
+    text-align: right;
+}
+
+.nav-links > a {
+    margin: 0 5px 0 5px;
+
+    font-weight: bold;
+    text-decoration: none;
+    color: rgba(0,0,0,.5);
+}
+
+.nav-links > a.active {
+    color: rgba(0,0,0,.9);
+}
+
+.page-title h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+}
+
+.page-title p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+.project-grid  {
+    display: grid;
+    grid-template-columns: repeat(var(--max-columns, auto-fill), 330px);
+    grid-auto-rows: 330px;
+    
+    grid-gap: var(--col-gap, 15px);
+    row-gap: 20px;
+}
+
+.project {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.project-thumb {
+    object-fit: cover; 
+    width: 100%;
+    height: 185px;
+    transition: all 0.3s;
+}
+
+.project-text *{
+    padding: .5rem 1.0rem .5rem 1.0rem;
+    text-align: left;
+}
+
+.project-title {
+    font-weight: bold; 
+}
+
+.blur {
+    background-color: rgba(0,0,0,0.5);
+    position:fixed;
+    left:0;
+    top: 0;
+    width:100%;
+    height:100%;
+    transition: all 0.3s ease-in-out;
+    z-index: 150;
+}
+
+.modal-open {
+    overflow: hidden;
+    left: 0;
+    right:0;
+    /* top: 0; */
+    bottom: 0;
+    position: fixed;
+}
+
+.fullscreen-modal {
+    background-color: white;
+    position:fixed;
+    left: 50%;
+    top: 1%;
+    margin-left: calc(var(--content-res, 95%) / -2);
+    width: var(--content-res, 95%);
+    height: 98%;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 200ms;
+    overflow: scroll;
+    z-index: 200; 
+
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
+    scroll-behavior: smooth;
+}
+
+.fullscreen-modal::-webkit-scrollbar { 
+    display: none;  
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+
+    grid-gap: var(--col-gap, 15px);
+    row-gap: 5px;
+
+    /* margin: .5rem 1.0rem .5rem 1.0rem; */
+}
+
+.close-icon , .external-icon {
+    width: 50px;
+    height: 50px;   
+    margin: 10px 10px 0 0;
+    text-align: center; 
+    right: calc((100% - var(--content-res, 95%)) / 2);
+    position: fixed;
+    cursor: pointer;
+}
+
+.external-icon {
+    top: 70px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.close-icon > img , .external-icon > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    margin-top: -15px;
+    margin-left: -15px;
+
+    width: 30px;
+    height: 30px;
+}
+
+.modal-contents, .modal-contents * {
+    display: none;
+}
+
+
+.modal-image {
+    /* Object-fit messes up iframes in safari if being used for video */
+    object-fit: cover; 
+    width: 100%;
+    height: 50vh;
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    margin: 0 2rem 1rem 2rem;
+}
+
+.modal-desc {
+    color: rgb(80, 80, 80);
+    margin: 0rem 2rem .5rem 2rem;
+}
+
+.modal-image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, calc(var(--content-res, 100%) / 2.5));
+    grid-auto-rows: minmax(min-content, max-content);
+    grid-gap: var(--col-gap, 15px);
+    
+    margin: 1rem 0rem 1rem 0rem;
+    vertical-align: middle;
+}
+
+.modal-desc-image {
+    object-fit: cover; 
+    width: 100%;
+    /* height: 500px; */
+    overflow: hidden;
+}
+
+footer {
+    padding: 20px 0 20px 0;
+    font-size: 0.8rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: var(--content-res);
+    grid-auto-rows: auto;
+}
+
+footer p {
+    margin: 0.5rem 0 0.5rem;
+}
+
+.muted-text{
+    color: #6c757d;
+}
+
+.muted-text a {
+    color: #6c757d;
+}
