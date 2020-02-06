@@ -39,7 +39,7 @@ function openModal(project){
                             <img src='img/close-icon.svg'>
                         </div>
                         <a target='_blank' class='external-icon card round card-hover'>
-                            <img src='img/extern-icon.svg'>
+                            <span>Demo</span>
                         </a>
                         <div class='modal-grid grid-centered'></div>
                    </div>`).appendTo($('body'));

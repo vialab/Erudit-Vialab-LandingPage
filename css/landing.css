@@ -186,6 +186,16 @@ in the general order that they appear in */
 .external-icon {
     top: 70px;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
+    font-size: 0.85rem;
+    color: rgb(104,104,104);
+    text-decoration: none;
+}
+
+.external-icon span {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
 }
 
 .close-icon > img , .external-icon > img {
